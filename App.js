@@ -6,16 +6,8 @@ import { useEffect, useState } from 'react';
 export default function App() {
   const url = 'https://jsonplaceholder.typicode.com/users';
   const url3 = 'https://www.flickr.com/services/rest/?method=flickr.favorites.getList&api_key=ae641a72f022d3fa83fa3009357c8546&user_id=190415467%40N05&extras=views%2C+media%2C+path_alias%2C+url_sq%2C+url_t%2C+url_s%2C+url_q%2C+url_m%2C+url_n%2C+url_z%2C+url_c%2C+url_l%2C+url_o&per_page=100&page=1&format=json&nojsoncallback=1';
-
-  const url2 = 'https://jsonplaceholder.typicode.com/photos';
   const [data, setData] = useState();
-  const [arr, setArr] = useState([])
-  const Item = ({ title }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
-
+  const [arr, setArr] = useState([]);
 
   useEffect(() => {
     fetch(url3)
@@ -42,12 +34,12 @@ export default function App() {
         data={arr}
         //giao diện 1 mảng
         renderItem={({ item }) => (
-          <View style={{ borderWidth: 1, margin: 10,}}>
+          <View style={{ borderWidth: 1, margin: 10, }}>
             <Text>ID: {item.id}</Text>
             <Text>Media Status: {item.media_status}</Text>
             <Text>Owner: {item.owner}</Text>
             <Text>Title: {item.title}</Text>
-            <Image style={{height: 170, width: 370,}} source={{ uri: item.url_sq }} />
+            <Image style={{ height: 170, width: 370, }} source={{ uri: item.url_sq }} />
           </View>
 
         )}
